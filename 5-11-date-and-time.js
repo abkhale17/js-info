@@ -175,7 +175,17 @@ function formatDate(date) {
   let year = String(date.getFullYear()).slice(2)
   let hours = date.getHours()
   let minutes = date.getMinutes()
-  
+
+  let d = [
+    `0${day}`,
+    `0${month}`,
+    `0${year}`,
+    `0${hours}`,
+    `0${minutes}`
+  ].map(timeComponent => timeComponent.slice(-2))
+
+  console.log(d)
+  return `${d.slice(0, 3).join(".")} ${d.slice(3).join(":")}`
 
   return `${day >= 10 ? day : '0' + day}.${month >= 10 ? month : '0' + month}.${year} ${hours >= 10 ? hours : '0' + hours}:${minutes >= 10 ? minutes : '0' + minutes }`
 }
